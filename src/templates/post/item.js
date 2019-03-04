@@ -6,12 +6,11 @@ class PostItem extends Component {
     render() {
 
         const {item} = this.props;
-
         return (
             <Link to={"/" + item.slug}>
                 <div className="post-cards__card">
                     <div className="post-cards__img">
-                        <img width={350} height={350} src={item.featured_media ? item.featured_media.source_url : '#'} alt={item.title} />
+                        <img width={350} height={350} src={item.featured_media ? item.featured_media.source_url.replace(/^http:\/\//i, 'https://') : '#'} alt={item.title} />
                     </div>
                     <div className="post-cards__info">
                         <p className="post-cards__date">{item.date}</p>

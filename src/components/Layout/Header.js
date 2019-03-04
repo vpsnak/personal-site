@@ -14,12 +14,12 @@ import {
 } from 'reactstrap';
 
 const Header = () => (
-    <header className={"main-header"} style={{backgroundImage: "url('http://cv.digitalmedia.com.gr/wp-content/themes/spirit/assets/img/img_bg_header.jpg')" }}>
+    <header className={"main-header"} style={{backgroundImage: "url('//cv.digitalmedia.com.gr/wp-content/themes/spirit/assets/img/img_bg_header.jpg')" }}>
         <Menu/>
             <Container>
                 <Row className={"personal-profile"}>
                     <Col md={4} className={"personal-profile__avatar"}>
-                        <img width="349" height="400" src="http://cv.digitalmedia.com.gr/wp-content/uploads/2018/12/cropped-snak-blank-1.jpg" className="custom-logo" alt="Evangelos Pallis" itemProp="logo" srcSet="http://cv.digitalmedia.com.gr/wp-content/uploads/2018/12/cropped-snak-blank-1.jpg 349w, http://cv.digitalmedia.com.gr/wp-content/uploads/2018/12/cropped-snak-blank-1-262x300.jpg 262w" sizes="(max-width: 349px) 100vw, 349px"/>
+                        <img width="349" height="400" src="//cv.digitalmedia.com.gr/wp-content/uploads/2018/12/cropped-snak-blank-1.jpg" className="custom-logo" alt="Evangelos Pallis" itemProp="logo" srcSet="//cv.digitalmedia.com.gr/wp-content/uploads/2018/12/cropped-snak-blank-1.jpg 349w, //cv.digitalmedia.com.gr/wp-content/uploads/2018/12/cropped-snak-blank-1-262x300.jpg 262w" sizes="(max-width: 349px) 100vw, 349px"/>
                     </Col>
                     <Col md={8}>
                         <p className={"personal-profile__name"}>Evangelos Pallis_</p>

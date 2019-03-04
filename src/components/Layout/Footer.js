@@ -20,7 +20,7 @@ class Footer extends Component {
     render() {
 
         return (
-            <footer className={"background"} style={{backgroundImage: "url(http://cv.digitalmedia.com.gr/wp-content/themes/spirit/assets/img/img_bg_main.jpg)"}}>
+            <footer className={"background"} style={{backgroundImage: "url(//cv.digitalmedia.com.gr/wp-content/themes/spirit/assets/img/img_bg_main.jpg)"}}>
                 <Section id={"contact"} title={"Get in touch_"}>
                     <Row className={"contacts"}>
                         <Col md={5} lg={4}>
