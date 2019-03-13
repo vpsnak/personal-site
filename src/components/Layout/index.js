@@ -6,9 +6,9 @@ import Footer from "./Footer"
 // import 'bootstrap/dist/css/bootstrap.css';
 import '../../static/css/main.css';
 
-const Layout = ({children}) => ((
+const Layout = ({children, ...props}) => ((
         <>
-        <Header />
+        <Header path={props.path}/>
         <main>
             {children}
         </main>

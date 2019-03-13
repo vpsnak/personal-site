@@ -56,8 +56,8 @@ const PageHeader = () => (
     </>
 );
 
-const Header = () => (
-    (window.location.pathname === '/') ? <HomeHeader /> : <PageHeader />
+const Header = (props) => (
+    (props.path === '/') ? <HomeHeader /> : <PageHeader />
 );
 
 export default Header

@@ -23,7 +23,7 @@ class IndexPage extends Component {
         const data = this.props.data;
 
         return (
-            <Layout>
+            <Layout path={this.props.location.pathname}>
                 <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
                 <Profile />
                 <hr />

@@ -40,8 +40,8 @@ class PostSingle extends Component {
                             <p className="article_date">{post.date}</p>
                             <div dangerouslySetInnerHTML={{__html: post.content}} />
                             <p className="article__share">Share this post:
-                                <a href="#"><FaLinkedinSquare /></a>
-                                <a href="#"><FaFacebookSquare /></a>
+                                <a href="/"><FaLinkedinSquare /></a>
+                                <a href="/"><FaFacebookSquare /></a>
                             </p>
                         </Col>
                     </Row>
