@@ -73,17 +73,13 @@ export const query = graphql`
                 content
                 link
                 featured_media{
-                  source_url
                   localFile{
-                    name
-                    extension
-                    base
-                    relativePath
-                  }
-                  media_details{
-                    width
-                    height
-                    file
+                      childImageSharp {
+                        fluid(maxWidth: 350){
+                        ...GatsbyImageSharpFluid
+                          # ...GatsbyImageSharpResolutions_withWebp
+                        }
+                      }
                   }
                 }
               }
@@ -111,19 +107,7 @@ export const query = graphql`
                   spirit_project_client
                   spirit_project_client_link
                 }
-                featured_media{
-                  source_url
-                  localFile{
-                    relativeDirectory
-                    base
-                    relativePath
-                  }
-                  media_details{
-                    width
-                    height
-                    file
-                  }
-                }
+                ...ProjectImage
               }
             }
           }

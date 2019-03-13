@@ -1,4 +1,4 @@
-ackages/*/yarn.lock
+packages/*/yarn.lock
 packages/*/package-lock.json
 
 # Logs
