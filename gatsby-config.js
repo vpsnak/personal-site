@@ -86,8 +86,21 @@ module.exports = {
             },
         },
         'gatsby-plugin-react-helmet',
-        'gatsby-plugin-sharp',
-        'gatsby-transformer-sharp',
+        `gatsby-transformer-sharp`,
+        {
+            resolve: `gatsby-plugin-sharp`,
+            options: {
+                useMozJpeg: false,
+                stripMetadata: true,
+                defaultQuality: 75,
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/src/assets/`,
+            }
+        }
         // 'gatsby-plugin-netlify',
         // {
         //     resolve: `gatsby-plugin-sharp`,

@@ -17,7 +17,7 @@ class Profile extends Component {
 
                 <Fab variant="extended" aria-label="Download" className={"section_btn site-btn"}>
                     <CloudDownload/>
-                    Downlaod CV
+                    Download CV
                 </Fab>
             </Section>
         )

@@ -1,7 +1,5 @@
 import React, {Component} from "react"
 import {graphql} from "gatsby"
-// import "gatsby-transform-sharp"
-// import "gatsby-plugin-sharp"
 
 import Layout from "../components/Layout/index"
 import Section from "../components/Layout/Section"
@@ -54,12 +52,6 @@ class IndexPage extends Component {
 }
 
 export default IndexPage
-
-// childImageSharp {
-//     fluid(maxWidth: 680) {
-//     ...GatsbyImageSharpFluid
-//     }
-// }
 
 export const query = graphql`
         query HomeQuery {

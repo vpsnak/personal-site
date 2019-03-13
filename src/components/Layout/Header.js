@@ -1,5 +1,7 @@
 import React from "react"
+import {graphql, StaticQuery} from "gatsby"
 import Menu from "../Menu/index"
+import Img from "gatsby-image"
 
 import {
     FaGithub,
@@ -13,39 +15,61 @@ import {
     Col
 } from 'reactstrap';
 
-const HomeHeader = () => (
-    <header className={"main-header"} style={{backgroundImage: "url('//cv.digitalmedia.com.gr/wp-content/themes/spirit/assets/img/img_bg_header.jpg')"}}>
-        <Menu />
-        <Container>
-            <Row className={"personal-profile"}>
-                <Col md={4} className={"personal-profile__avatar"}>
-                    <img width="349" height="400" src="//cv.digitalmedia.com.gr/wp-content/uploads/2018/12/cropped-snak-blank-1.jpg" className="custom-logo" alt="Evangelos Pallis" itemProp="logo" srcSet="//cv.digitalmedia.com.gr/wp-content/uploads/2018/12/cropped-snak-blank-1.jpg 349w, //cv.digitalmedia.com.gr/wp-content/uploads/2018/12/cropped-snak-blank-1-262x300.jpg 262w" sizes="(max-width: 349px) 100vw, 349px" />
-                </Col>
-                <Col md={8}>
-                    <p className={"personal-profile__name"}>Evangelos Pallis_</p>
-                    <p className="personal-profile__work">Mid - Senior Full Stack Developer</p>
-                    <div className="personal-profile__contacts">
-                        <dl className="contact-list contact-list__opacity-titles">
-                            <dt>Age:</dt>
-                            <dd>24</dd>
-                            <dt>Phone:</dt>
-                            {/*preg_replace('/[^a-zA-Z0-9+.]/', '', $phone)*/}
-                            <dd><a href="tel:+30697452654">(+30) 697452654</a></dd>
-                            <dt>Email:</dt>
-                            <dd><a href="mailto:info.vpsnak@gmail.com">info.vpsnak@gmail.com</a></dd>
-                            <dt>Address:</dt>
-                            <dd>Marousi, Athens Greece</dd>
-                        </dl>
-                    </div>
-                    <p className="personal-profile__social">
-                        <a href="https://github.com/vpsnak" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-                        <a href="https://linkedin.com/in/evangelos-pallis/" target="_blank" rel="noopener noreferrer"><FaLinkedinSquare /></a>
-                        <a href="https://facebook.com/vpsnak" target="_blank" rel="noopener noreferrer"><FaFacebookSquare /></a>
-                    </p>
-                </Col>
-            </Row>
-        </Container>
-    </header>
+export const HomeHeader = () => (
+    <StaticQuery
+        query={graphql`
+            query HeaderQuery {
+                headerImage: file(relativePath: { eq: "images/header_bg.jpg" }) {
+                      childImageSharp {
+                        fixed(width: 1900, height: 470, cropFocus: CENTER) {
+                          src
+                        }
+                      }
+                }
+                profileImage: file(relativePath: { eq: "images/profile_picture.jpg" }) {
+                      childImageSharp {
+                        fixed(width: 315, height: 400, cropFocus: CENTER) {
+                          ...GatsbyImageSharpFixed
+                        }
+                      }
+                }
+            }
+        `}
+        render={node =>
+            <header className={"main-header"} style={{backgroundImage: "url('" + node.headerImage.childImageSharp.fixed.src + "')"}}>
+                <Menu />
+                <Container>
+                    <Row className={"personal-profile"}>
+                        <Col md={4} className={"personal-profile__avatar"} style={{position: 'relative',top: '50px'}}>
+                            <Img fixed={node.profileImage.childImageSharp.fixed} className="custom-logo" alt="Evangelos Pallis"/>
+                        </Col>
+                        <Col md={8}>
+                            <p className={"personal-profile__name"}>Evangelos Pallis_</p>
+                            <p className="personal-profile__work">Mid - Senior Full Stack Developer</p>
+                            <div className="personal-profile__contacts">
+                                <dl className="contact-list contact-list__opacity-titles">
+                                    <dt>Age:</dt>
+                                    <dd>24</dd>
+                                    <dt>Phone:</dt>
+                                    {/*preg_replace('/[^a-zA-Z0-9+.]/', '', $phone)*/}
+                                    <dd><a href="tel:+30697452654">(+30) 697452654</a></dd>
+                                    <dt>Email:</dt>
+                                    <dd><a href="mailto:info.vpsnak@gmail.com">info.vpsnak@gmail.com</a></dd>
+                                    <dt>Address:</dt>
+                                    <dd>Marousi, Athens Greece</dd>
+                                </dl>
+                            </div>
+                            <p className="personal-profile__social">
+                                <a href="https://github.com/vpsnak" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+                                <a href="https://linkedin.com/in/evangelos-pallis/" target="_blank" rel="noopener noreferrer"><FaLinkedinSquare /></a>
+                                <a href="https://facebook.com/vpsnak" target="_blank" rel="noopener noreferrer"><FaFacebookSquare /></a>
+                            </p>
+                        </Col>
+                    </Row>
+                </Container>
+            </header>
+        }
+    />
 );
 
 const PageHeader = () => (
