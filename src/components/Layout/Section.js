@@ -18,8 +18,10 @@ class Section extends Component {
         const top = this.sectionTitle.getBoundingClientRect().top;
         if ((top) >= 0 && (top) <= window.innerHeight) {
             window.removeEventListener('scroll', this.handleScroll);
-            this.setState({animate: true});
-            this.setState({inView: true});
+            this.setState({
+                animate: true,
+                inView: true
+            });
         }
     };
 
