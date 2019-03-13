@@ -1,6 +1,5 @@
 import React, {Component} from "react"
 import {StaticQuery, graphql} from "gatsby"
-// import PropTypes from "prop-types"
 import {
     Container,
     Row,
@@ -30,12 +29,11 @@ class Menu extends Component {
 
     handleScroll() {
         const top = window.scrollY;
-        // console.log(top);
         if ((top) > 0) {
             this.setState({
                 isActive: true
             });
-        } else if((top) === 0) {
+        } else if ((top) === 0) {
             this.setState({
                 isActive: false
             });
@@ -62,15 +60,12 @@ class Menu extends Component {
             <div className={"menu" + (this.state.isActive ? " menu--active " : "")}>
                 <Container>
                     <Row>
-                        <Col md={12} className="menu__wrapper d-none d-lg-block">
-                            {/*<NavbarToggler onClick={this.toggle} />*/}
-                            {/*<Collapse isOpen={this.state.isOpen} navbar>*/}
-                                <nav className={"menu_list"}>
-                                    <Nav className={"menu__nav"}>
-                                        {itemList}
-                                    </Nav>
-                                </nav>
-                            {/*</Collapse>*/}
+                        <Col md={12} className="menu__wrapper">
+                            <nav className={"menu_list"}>
+                                <Nav className={"menu__nav"}>
+                                    {itemList}
+                                </Nav>
+                            </nav>
                         </Col>
                     </Row>
                 </Container>
@@ -113,7 +108,3 @@ export default props => (
         render={data => <Menu data={data} {...props} />}
     />
 )
-
-// Menu.propTypes = {
-//     data: PropTypes.isRequired,
-// };

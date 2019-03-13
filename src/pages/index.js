@@ -1,5 +1,7 @@
 import React, {Component} from "react"
 import {graphql} from "gatsby"
+// import "gatsby-transform-sharp"
+// import "gatsby-plugin-sharp"
 
 import Layout from "../components/Layout/index"
 import Section from "../components/Layout/Section"
@@ -23,34 +25,41 @@ class IndexPage extends Component {
         return (
             <Layout>
                 <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-                <Profile/>
-                <hr/>
-                <Resume/>
-                <hr/>
+                <Profile />
+                <hr />
+                <Resume />
+                <hr />
                 <Section id="portfolio" title="My projects_">
                     <div className={"portfolio-cards"}>
-                    {data.allWordpressWpProjects.edges.map((item) =>
-                        <ProjectItem key={item.node.slug} item={item.node} />
-                    )}
+                        {data.allWordpressWpProjects.edges.map((item) =>
+                            <ProjectItem key={item.node.slug} item={item.node} />
+                        )}
                     </div>
                 </Section>
-                <hr/>
+                <hr />
                 <Section id="blog" title="Latest Posts_">
                     <Row className={"post-cards"}>
-                    {data.allWordpressPost.edges.map((item) =>
-                        <Col key={item.node.slug} md={4}>
-                            <PostItem item={item.node} />
-                        </Col>
-                    )}
+                        {data.allWordpressPost.edges.map((item) =>
+                            <Col key={item.node.slug} md={4}>
+                                <PostItem item={item.node} />
+                                {/*{console.log(item)}*/}
+                            </Col>
+                        )}
                     </Row>
                 </Section>
-                <hr/>
+                <hr />
             </Layout>
         )
     }
 }
 
 export default IndexPage
+
+// childImageSharp {
+//     fluid(maxWidth: 680) {
+//     ...GatsbyImageSharpFluid
+//     }
+// }
 
 export const query = graphql`
         query HomeQuery {
@@ -105,13 +114,9 @@ export const query = graphql`
                 featured_media{
                   source_url
                   localFile{
-                    name
-                    extension
+                    relativeDirectory
                     base
                     relativePath
-                    children{
-                      __typename
-                    }
                   }
                   media_details{
                     width

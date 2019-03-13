@@ -15,7 +15,7 @@ class Profile extends Component {
             >
                 {/*<Button waves='orange' className={"section_btn site-btn"}>button<Icon left>cloud</Icon></Button>*/}
 
-                <Fab variant="extended" aria-label="Downlaod" className={"section_btn site-btn"}>
+                <Fab variant="extended" aria-label="Download" className={"section_btn site-btn"}>
                     <CloudDownload/>
                     Downlaod CV
                 </Fab>

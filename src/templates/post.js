@@ -1,10 +1,9 @@
 import React, {Component} from "react"
 import {graphql} from "gatsby"
 import PropTypes from "prop-types"
-import {rhythm} from "../utils/typography"
 import Layout from "../components/Layout/index"
-import PostIcons from "../components/post-icons"
 import SEO from "../components/seo"
+import PostSingle from "./post/single"
 
 class PostTemplate extends Component {
     render() {
@@ -25,9 +24,7 @@ class PostTemplate extends Component {
                          {'twitter:description`': post.title}
                      ]}
                 />
-                <h1 dangerouslySetInnerHTML={{__html: post.title}}/>
-                <PostIcons node={post} css={{marginBottom: rhythm(1 / 2)}}/>
-                <div dangerouslySetInnerHTML={{__html: post.content}}/>
+                <PostSingle post={post}/>
             </Layout>
         )
     }
@@ -45,7 +42,7 @@ export const pageQuery = graphql`
     wordpressPost(id: { eq: $id }) {
       title
       content
-      ...PostIcons
+      ...PostMeta
     }
     site {
       siteMetadata {
