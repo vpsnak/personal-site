@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import {graphql, StaticQuery} from "gatsby"
-// import {graphql, Link} from "gatsby"
+import Img from "gatsby-image"
 
 import Section from "../Layout/Section"
 import Contact from "../Contact/index"
@@ -25,16 +25,25 @@ class Footer extends Component {
                 query={graphql`
                     query FooterQuery {
                         footerImage: file(relativePath: { eq: "images/footer_bg.jpg" }) {
-                              childImageSharp {
+                            childImageSharp {
                                 fixed(width: 1900, height: 470, cropFocus: CENTER) {
                                   ...GatsbyImageSharpFixed_withWebp
                                 }
-                              }
+                            }
                         }
                     }
                 `}
                 render={node =>
-                    <footer className={"background"} style={{backgroundImage: "url('" + node.footerImage.childImageSharp.fixed.src + "')"}}>
+                    <footer className={"background"}>
+                        <Img fixed={node.footerImage.childImageSharp.fixed}
+                             style={{
+                                 position: "absolute",
+                                 left: 0,
+                                 top: 0,
+                                 width: "100%",
+                                 height: "100%",
+                                 zIndex: '-1'
+                             }} />
                         <Section id={"contact"} title={"Get in touch_"}>
                             <Row className={"contacts"}>
                                 <Col md={5} lg={4}>

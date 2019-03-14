@@ -15,7 +15,7 @@ class PostReleated extends Component {
                 <Row className="posts">
                     {data.map((post) =>
                         <Col key={post.node.id} md={5} className="mr-auto">
-                            <div class="posts__item">
+                            <div className="posts__item">
                                 <a href={'/' + post.node.slug}>
                                     <h3 className="posts__title" dangerouslySetInnerHTML={{__html: post.node.title}} />
                                     <p className="posts__description" dangerouslySetInnerHTML={{__html: post.node.content.replace(/(<([^>]+)>)/ig, "").substring(0, 110) + '...'}} />
