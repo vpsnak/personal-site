@@ -22,14 +22,14 @@ export const HomeHeader = () => (
                 headerImage: file(relativePath: { eq: "images/header_bg.jpg" }) {
                       childImageSharp {
                         fixed(width: 1900, height: 470, cropFocus: CENTER) {
-                          src
+                          ...GatsbyImageSharpFixed_withWebp
                         }
                       }
                 }
                 profileImage: file(relativePath: { eq: "images/profile_picture.jpg" }) {
                       childImageSharp {
                         fixed(width: 315, height: 400, cropFocus: CENTER) {
-                          ...GatsbyImageSharpFixed
+                          ...GatsbyImageSharpFixed_withWebp
                         }
                       }
                 }

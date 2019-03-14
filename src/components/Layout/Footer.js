@@ -27,7 +27,7 @@ class Footer extends Component {
                         footerImage: file(relativePath: { eq: "images/footer_bg.jpg" }) {
                               childImageSharp {
                                 fixed(width: 1900, height: 470, cropFocus: CENTER) {
-                                  src
+                                  ...GatsbyImageSharpFixed_withWebp
                                 }
                               }
                         }
