@@ -77,7 +77,7 @@ const Header = (props) => (
             query HeaderQuery {
                 headerImage: file(relativePath: { eq: "images/header_bg.jpg" }) {
                     childImageSharp {
-                        fixed(width: 1900, height: 470, cropFocus: CENTER) {
+                        fixed(width: 1900, height: 500, cropFocus: CENTER) {
                             ...GatsbyImageSharpFixed_withWebp
                         }
                     }
