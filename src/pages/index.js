@@ -77,6 +77,39 @@ export const query = graphql`
               }
             }
           }
+          allWordpressWpEducations(sort: {fields: [menu_order], order: DESC}, limit: 3) {
+            edges{
+              node{
+                wordpress_id
+                slug
+                date(formatString: "MMMM DD, YYYY")
+                title
+                content
+                link
+                spirit_education_meta{
+                  spirit_education_datefrom
+                  spirit_education_dateto
+                }
+              }
+            }
+          }
+          allWordpressWpEmployments(sort: {fields: [menu_order], order: DESC}, limit: 3) {
+            edges{
+              node{
+                wordpress_id
+                slug
+                date(formatString: "MMMM DD, YYYY")
+                title
+                content
+                link
+                spirit_employment_meta{
+                  spirit_employment_company
+                  spirit_employment_datefrom
+                  spirit_employment_dateto
+                }
+              }
+            }
+          }
           allWordpressWpProjects(sort: {fields: [date], order: DESC}, limit: 3) {
             edges{
               node{
