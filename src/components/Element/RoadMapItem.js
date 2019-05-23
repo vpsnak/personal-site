@@ -1,9 +1,14 @@
-import React, {Component} from "react"
-import PropTypes from "prop-types"
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
-class ResumeEntry extends Component {
+class RoadMapItem extends Component {
     render() {
-        const {title, from, to, children} = this.props;
+        const {
+            title,
+            from,
+            to,
+            children
+        } = this.props;
 
         return (
             <div className={"resume-list__block"}>
@@ -15,11 +20,11 @@ class ResumeEntry extends Component {
     }
 }
 
-ResumeEntry.propTypes = {
+RoadMapItem.propTypes = {
     title: PropTypes.string.isRequired,
-    from: PropTypes.string.isRequired ,
+    from: PropTypes.string.isRequired,
     to: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired
 };
 
-export default ResumeEntry
+export default RoadMapItem

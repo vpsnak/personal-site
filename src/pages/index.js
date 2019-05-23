@@ -1,51 +1,62 @@
-import React, {Component} from "react"
-import {graphql} from "gatsby"
+import React, {Component} from 'react'
+import {graphql} from 'gatsby'
 
-import Layout from "../components/Layout/index"
-import Section from "../components/Layout/Section"
-import PostItem from "../templates/post/item"
-import ProjectItem from "../templates/project/item"
-import Profile from "../components/Profile/index"
-import Resume from "../components/Resume/index"
+import {Layout} from '../components/Layout'
+// import Section from '../components/Layout/Section'
+// import PostItem from '../templates/post/item'
+// import ProjectItem from '../templates/project/item'
+// import Profile from '../components/Profile/index'
+// import Resume from '../components/Resume/index'
 
-import SEO from "../components/seo"
+import SEO from '../components/seo'
+
+// import {
+//     Row,
+//     Col
+// } from 'reactstrap';
 
 import {
-    Row,
-    Col
-} from 'reactstrap';
-
+    Hi,
+    Resume
+} from '../components/Container'
 
 class IndexPage extends Component {
     render() {
-        const data = this.props.data;
+        const {
+            data,
+            location
+        } = this.props;
 
         return (
-            <Layout path={this.props.location.pathname}>
-                <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-                <Profile />
+            <Layout path={location.pathname} data={data}>
+                <SEO
+                    title={`Programming made easy`}
+                    location={location}
+                    keywords={[`web developer`, `software developer`, `react`, `php`, `css`, `javascript`, `git`, `wordpress`, `magento`, `magento 2`]}
+                />
+                <Hi />
                 <hr />
                 <Resume />
                 <hr />
-                <Section id="portfolio" title="My projects_">
-                    <div className={"portfolio-cards"}>
-                        {data.allWordpressWpProjects.edges.map((item) =>
-                            <ProjectItem key={item.node.slug} item={item.node} />
-                        )}
-                    </div>
-                </Section>
-                <hr />
-                <Section id="blog" title="Latest Posts_">
-                    <Row className={"post-cards"}>
-                        {data.allWordpressPost.edges.map((item) =>
-                            <Col key={item.node.slug} md={4}>
-                                <PostItem item={item.node} />
-                                {/*{console.log(item)}*/}
-                            </Col>
-                        )}
-                    </Row>
-                </Section>
-                <hr />
+                {/*<Section id="portfolio" title="My projects_">*/}
+                {/*<div className={"portfolio-cards"}>*/}
+                {/*{data.allWordpressWpProjects.edges.map((item) =>*/}
+                {/*<ProjectItem key={item.node.slug} item={item.node} />*/}
+                {/*)}*/}
+                {/*</div>*/}
+                {/*</Section>*/}
+                {/*<hr />*/}
+                {/*<Section id="blog" title="Latest Posts_">*/}
+                {/*<Row className={"post-cards"}>*/}
+                {/*{data.allWordpressPost.edges.map((item) =>*/}
+                {/*<Col key={item.node.slug} md={4}>*/}
+                {/*<PostItem item={item.node} />*/}
+                {/*/!*{console.log(item)}*!/*/}
+                {/*</Col>*/}
+                {/*)}*/}
+                {/*</Row>*/}
+                {/*</Section>*/}
+                {/*<hr />*/}
             </Layout>
         )
     }
@@ -54,87 +65,18 @@ class IndexPage extends Component {
 export default IndexPage
 
 export const query = graphql`
-        query HomeQuery {
-          allWordpressPost(sort: {fields: [date], order: DESC}, limit: 3) {
-            edges{
-              node{
-                wordpress_id
-                slug
-                date(formatString: "MMMM DD, YYYY")
-                title
-                content
-                link
-                featured_media{
-                  localFile{
-                      childImageSharp {
-                        fluid(maxWidth: 350){
-                        ...GatsbyImageSharpFluid
-                          # ...GatsbyImageSharpResolutions_withWebp
-                        }
-                      }
-                  }
-                }
-              }
-            }
-          }
-          allWordpressWpEducations(sort: {fields: [menu_order], order: DESC}, limit: 3) {
-            edges{
-              node{
-                wordpress_id
-                slug
-                date(formatString: "MMMM DD, YYYY")
-                title
-                content
-                link
-                spirit_education_meta{
-                  spirit_education_datefrom
-                  spirit_education_dateto
-                }
-              }
-            }
-          }
-          allWordpressWpEmployments(sort: {fields: [menu_order], order: DESC}, limit: 3) {
-            edges{
-              node{
-                wordpress_id
-                slug
-                date(formatString: "MMMM DD, YYYY")
-                title
-                content
-                link
-                spirit_employment_meta{
-                  spirit_employment_company
-                  spirit_employment_datefrom
-                  spirit_employment_dateto
-                }
-              }
-            }
-          }
-          allWordpressWpProjects(sort: {fields: [date], order: DESC}, limit: 3) {
-            edges{
-              node{
-                slug
-                date(formatString: "MMMM DD, YYYY")
-                title
-                content
-                link
-                spirit_project_stacks{
-                  term_id
-                  name
-                  slug
-                }
-                spirit_project_categories{
-                  term_id
-                  name
-                  slug
-                }
-                spirit_project_meta{
-                  spirit_project_client
-                  spirit_project_client_link
-                }
-                ...ProjectImage
-              }
-            }
+    query HomeQuery {
+      allWordpressPage(sort: {fields: [date], order: DESC}, limit: 3) {
+        edges{
+          node{
+            wordpress_id
+            slug
+            date(formatString: "MMMM DD, YYYY")
+            title
+            content
+            link
           }
         }
-    `;
+      }
+    }
+`;

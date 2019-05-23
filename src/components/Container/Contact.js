@@ -1,21 +1,17 @@
-import React, {Component} from "react"
-// import PropTypes from "prop-types"
+import React, {Component} from 'react'
 import axios from 'axios';
 import Fab from '@material-ui/core/Fab';
 
 const API_PATH = './contact.php';
 
 class Contact extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            fname: '',
-            lname: '',
-            email: '',
-            message: '',
-        }
-    }
+    state = {
+        name: '',
+        fname: '',
+        lname: '',
+        email: '',
+        message: '',
+    };
 
     handleFormSubmit(event) {
         event.preventDefault();
@@ -58,7 +54,7 @@ class Contact extends Component {
                                   defaultValue={this.state.message}
                         />
                     </div>
-                    <Fab variant="extended" onClick={e => this.handleFormSubmit(e)} className={"site-btn site-btn--form"}  type="submit" value="Send">
+                    <Fab variant="extended" onClick={e => this.handleFormSubmit(e)} className={"site-btn site-btn--form"} type="submit" value="Send">
                         Send
                     </Fab>
                     <div>

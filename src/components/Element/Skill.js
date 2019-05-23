@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React, {Component} from 'react'
 
 import {
     Progress
@@ -6,16 +6,11 @@ import {
 
 
 class Skill extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            inView: false,
-            animate: false,
-            percent: 0
-        };
-    }
+    state = {
+        inView: false,
+        animate: false,
+        percent: 0
+    };
 
     handleScroll = () => {
         const top = this.progressBar.getBoundingClientRect().top;

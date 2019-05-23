@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
     siteMetadata: {
-        title: `My 1st React Site`,
-        description: `Custom Desc`,
+        title: `Evangelos Pallis`,
+        description: `Personal site`,
         subtitle: `Custom Desc`,
         author: `@vpsnak`,
     },
@@ -21,9 +21,9 @@ module.exports = {
                  * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
                  * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
                  */
-                baseUrl: "cv.digitalmedia.com.gr",
+                baseUrl: "vpsnak.com",
                 // The protocol. This can be http or https.
-                protocol: "http",
+                protocol: "https",
                 // Indicates whether the site is hosted on wordpress.com.
                 // If false, then the assumption is made that the site is self hosted.
                 // If true, then the plugin will source its content on wordpress.com using the JSON REST API V2.
@@ -32,7 +32,7 @@ module.exports = {
                 // If useACF is true, then the source plugin will try to import the Wordpress ACF Plugin contents.
                 // This feature is untested for sites hosted on wordpress.com.
                 // Defaults to true.
-                useACF: false,
+                useACF: true,
                 // Include specific ACF Option Pages that have a set post ID
                 // Regardless if an ID is set, the default options route will still be retrieved
                 // Must be using V3 of ACF to REST to include these routes
@@ -80,9 +80,9 @@ module.exports = {
                     "**/educations",
                     "**/employments",
                     "**/projects",
-                    "**/spirit/**",
-                    "**/spirit/v2/options",
-                    "**/settings",
+                    // "**/spirit/**",
+                    // "**/spirit/v2/options",
+                    // "**/settings",
                     "**/menus",
                 ],
                 // Blacklisted routes using glob patterns
@@ -93,7 +93,7 @@ module.exports = {
                 },
             },
         },
-        'gatsby-plugin-react-helmet',
+        `gatsby-plugin-emotion`,
         `gatsby-transformer-sharp`,
         {
             resolve: `gatsby-plugin-sharp`,
@@ -108,15 +108,8 @@ module.exports = {
             options: {
                 path: `${__dirname}/src/assets/`,
             }
-        }
+        },
+        'gatsby-plugin-react-helmet',
         // 'gatsby-plugin-netlify',
-        // {
-        //     resolve: `gatsby-plugin-sharp`,
-        //     options: {
-        //         useMozJpeg: false,
-        //         stripMetadata: true,
-        //         defaultQuality: 75,
-        //     },
-        // },
     ],
 };
