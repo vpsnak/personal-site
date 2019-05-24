@@ -14,20 +14,20 @@ class Contact extends Component {
     };
 
     handleFormSubmit(event) {
-        event.preventDefault();
-        console.log(this.state);
-        axios({
-            method: 'post',
-            url: `${API_PATH}`,
-            headers: {'content-type': 'application/json'},
-            data: this.state
-        })
-            .then(result => {
-                this.setState({
-                    mailSent: result.data.sent
-                })
-            })
-            .catch(error => this.setState({error: error.message}));
+        // event.preventDefault();
+        // console.log(this.state);
+        // axios({
+        //     method: 'post',
+        //     url: `${API_PATH}`,
+        //     headers: {'content-type': 'application/json'},
+        //     data: this.state
+        // })
+        //     .then(result => {
+        //         this.setState({
+        //             mailSent: result.data.sent
+        //         })
+        //     })
+        //     .catch(error => this.setState({error: error.message}));
     }
 
     render() {
