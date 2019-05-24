@@ -35,7 +35,10 @@ class Contact extends Component {
 
         return (
             <div>
-                <form action="#" className={"js-form"}>
+                <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true" className={"js-form"}>
+                    <p class="hidden" style={{display: `none`}}>
+                        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                    </p>
                     <div className={"form-group"}>
                         <input type="text" id="name" className="form-field js-field-name" name="name" placeholder="Your name.."
                                value={this.state.name}
@@ -59,7 +62,7 @@ class Contact extends Component {
                     </Fab>
                     <div>
                         {this.state.mailSent &&
-                        <div>Thank you for contcting us.</div>
+                        <div>Thanks for contacting me.</div>
                         }
                     </div>
                 </form>
