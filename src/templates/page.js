@@ -1,30 +1,57 @@
-import React, {Component} from "react"
-import {graphql} from "gatsby"
-import Header from "../components/Layout/Header"
-// import PostIcons from "../components/post-icons"
-// import Layout from "../layouts"
-
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import {graphql} from 'gatsby'
+import SEO from '../components/seo'
+import {Layout} from '../components/Layout'
+import {Single} from './structure'
 
 class PageTemplate extends Component {
     render() {
-        // const currentPage = this.props.data.wordpressPage;
+        if (pageQuery.errors)
+            throw new Error(pageQuery.errors);
+
+        const {
+            data,
+            location
+        } = this.props;
+
+        const page = data.page;
 
         return (
-            <div>
-                <Header/>
-                {/*<h1 dangerouslySetInnerHTML={{__html: currentPage.title}}/>*/}
-                {/*<PostIcons node={currentPage} css={{marginBottom: rhythm(1 / 2)}}/>*/}
-                {/*<div dangerouslySetInnerHTML={{__html: currentPage.content}}/>*/}
-            </div>
+            <Layout>
+                <SEO
+                    location={location}
+                    title={page.title}
+                    description={page.content.replace(/(<([^>]+)>)/ig, "").substring(0, 160)}
+                    meta={[
+                        {'og:title': page.title},
+                        {'og:description': page.title},
+                        {'og:type': `article`},
+                        {'twitter:card': page.title},
+                        {'twitter:creator': page.title},
+                        {'twitter:title`': page.title},
+                        {'twitter:description`': page.title}
+                    ]}
+                />
+                <Single
+                    item={page}
+                    url={location.href}
+                />
+            </Layout>
         )
     }
 }
+
+PageTemplate.propTypes = {
+    data: PropTypes.object.isRequired,
+    edges: PropTypes.array,
+};
 
 export default PageTemplate
 
 export const pageQuery = graphql`
   query($id: String!) {
-    wordpressPage(id: { eq: $id }) {
+    page: wordpressPage(id: { eq: $id }) {
       title
       content
       date(formatString: "MMMM DD, YYYY")

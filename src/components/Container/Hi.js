@@ -11,6 +11,7 @@ const Hi = (props) => {
 
     const info = data.profile;
 
+    // @TODO check why menu not scroll to this section
     return (
         <Section
             id={"hello"}

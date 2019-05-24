@@ -44,6 +44,7 @@ class Menu extends Component {
         window.removeEventListener('scroll', this.handleScroll)
     }
 
+    // @TODO add mobile menu
     render() {
         const data = this.props.data.wordpressWpApiMenusMenusItems;
 

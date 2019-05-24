@@ -28,7 +28,7 @@ class IndexPage extends Component {
         } = this.props;
 
         return (
-            <Layout path={location.pathname} data={data}>
+            <Layout isHome={location.pathname === '/'} data={data}>
                 <SEO
                     title={`Programming made easy`}
                     location={location}

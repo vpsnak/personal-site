@@ -1,8 +1,5 @@
 import React, {Component} from 'react'
-import axios from 'axios';
 import Fab from '@material-ui/core/Fab';
-
-const API_PATH = './contact.php';
 
 class Contact extends Component {
     state = {
@@ -36,7 +33,7 @@ class Contact extends Component {
         return (
             <div>
                 <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true" className={"js-form"}>
-                    <p class="hidden" style={{display: `none`}}>
+                    <p className="hidden" style={{display: `none`}}>
                         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
                     </p>
                     <div className={"form-group"}>

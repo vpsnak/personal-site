@@ -7,7 +7,7 @@ import '../../static/css/main.css';
 
 const Layout = ({children, ...props}) => {
     const {
-        isHome = true
+        isHome = false
     } = props;
     return (
         <div className={`d-flex flex-column`}>
