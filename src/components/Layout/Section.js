@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import {InView} from 'react-intersection-observer'
 import {Col, Container, Row} from 'reactstrap'
 
-const SectionDescription = styled.p({
+const SectionDescription = styled.div({
   marginBottom: `2rem`
 })
 

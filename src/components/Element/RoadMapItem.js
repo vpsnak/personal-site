@@ -12,9 +12,9 @@ class RoadMapItem extends Component {
 
     return (
       <div className={'resume-list__block'}>
-        <p className={'resume-list__block-title'}>{title}</p>
+        <p className={'resume-list__block-title'} dangerouslySetInnerHTML={{__html: title}} />
         <p className={'resume-list__block-date'}>{from} - {to}</p>
-        <p dangerouslySetInnerHTML={{__html: children}} />
+        <div dangerouslySetInnerHTML={{__html: children}} />
       </div>
     )
   }
