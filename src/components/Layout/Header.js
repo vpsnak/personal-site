@@ -13,15 +13,15 @@ const Header = ({data, ...props}) => {
     return (
       <header className={'main-header'}>
         <Menu />
-        <Img fixed={data.headerImage.childImageSharp.fixed}
-             style={{
-               position: 'absolute',
-               left: 0,
-               top: 0,
-               width: '100%',
-               height: '100%',
-               zIndex: '-1'
-             }} />
+        {/*<Img fixed={data.headerImage.childImageSharp.fixed}*/}
+             {/*style={{*/}
+               {/*position: 'absolute',*/}
+               {/*left: 0,*/}
+               {/*top: 0,*/}
+               {/*width: '100%',*/}
+               {/*height: '100%',*/}
+               {/*zIndex: '-1'*/}
+             {/*}} />*/}
         {data.profile && <Profile profile={data.profile} image={data.profileImage.childImageSharp.fixed} />}
       </header>
     )
@@ -31,7 +31,7 @@ const Header = ({data, ...props}) => {
     <>
     <Menu />
     <header className="background blog-header">
-      <Img fixed={data.footerImage.childImageSharp.fixed} style={{zIndex: '-1', height: '100%'}} />
+      {/*<Img fixed={data.footerImage.childImageSharp.fixed} style={{zIndex: '-1', height: '100%'}} />*/}
     </header>
     </>
   )
