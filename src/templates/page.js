@@ -6,46 +6,47 @@ import {Layout} from '../components/Layout'
 import {Single} from './structure'
 
 class PageTemplate extends Component {
-    render() {
-        if (pageQuery.errors)
-            throw new Error(pageQuery.errors);
-
-        const {
-            data,
-            location
-        } = this.props;
-
-        const page = data.page;
-
-        return (
-            <Layout>
-                <SEO
-                    location={location}
-                    title={page.title}
-                    description={page.content.replace(/(<([^>]+)>)/ig, "").substring(0, 160)}
-                    meta={[
-                        {'og:title': page.title},
-                        {'og:description': page.title},
-                        {'og:type': `article`},
-                        {'twitter:card': page.title},
-                        {'twitter:creator': page.title},
-                        {'twitter:title`': page.title},
-                        {'twitter:description`': page.title}
-                    ]}
-                />
-                <Single
-                    item={page}
-                    url={location.href}
-                />
-            </Layout>
-        )
+  render() {
+    if (pageQuery.errors) {
+      throw new Error(pageQuery.errors)
     }
+
+    const {
+      data,
+      location
+    } = this.props
+
+    const page = data.page
+
+    return (
+      <Layout>
+        <SEO
+          location={location}
+          title={page.title}
+          description={page.content.replace(/(<([^>]+)>)/ig, '').substring(0, 160)}
+          meta={[
+            {'og:title': page.title},
+            {'og:description': page.title},
+            {'og:type': `article`},
+            {'twitter:card': page.title},
+            {'twitter:creator': page.title},
+            {'twitter:title`': page.title},
+            {'twitter:description`': page.title}
+          ]}
+        />
+        <Single
+          item={page}
+          url={location.href}
+        />
+      </Layout>
+    )
+  }
 }
 
 PageTemplate.propTypes = {
-    data: PropTypes.object.isRequired,
-    edges: PropTypes.array,
-};
+  data: PropTypes.object.isRequired,
+  edges: PropTypes.array
+}
 
 export default PageTemplate
 

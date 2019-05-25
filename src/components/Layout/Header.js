@@ -2,46 +2,44 @@ import React from 'react'
 import {graphql, StaticQuery} from 'gatsby'
 import Img from 'gatsby-image'
 
-import {
-    Profile,
-    Menu
-} from '../Container'
+import {Menu, Profile} from '../Container'
 
 const Header = ({data, ...props}) => {
-    const {
-        isHome
-    } = props;
+  const {
+    isHome
+  } = props
 
-    if (isHome)
-        return (
-            <header className={"main-header"}>
-                <Menu />
-                <Img fixed={data.headerImage.childImageSharp.fixed}
-                     style={{
-                         position: "absolute",
-                         left: 0,
-                         top: 0,
-                         width: "100%",
-                         height: "100%",
-                         zIndex: '-1'
-                     }} />
-                {data.profile && <Profile profile={data.profile} image={data.profileImage.childImageSharp.fixed}/>}
-            </header>
-        );
-
+  if (isHome) {
     return (
-        <>
+      <header className={'main-header'}>
         <Menu />
-        <header className="background blog-header">
-            <Img fixed={data.footerImage.childImageSharp.fixed} style={{zIndex: "-1", height: "100%"}} />
-        </header>
-        </>
+        <Img fixed={data.headerImage.childImageSharp.fixed}
+             style={{
+               position: 'absolute',
+               left: 0,
+               top: 0,
+               width: '100%',
+               height: '100%',
+               zIndex: '-1'
+             }} />
+        {data.profile && <Profile profile={data.profile} image={data.profileImage.childImageSharp.fixed} />}
+      </header>
     )
-};
+  }
+
+  return (
+    <>
+    <Menu />
+    <header className="background blog-header">
+      <Img fixed={data.footerImage.childImageSharp.fixed} style={{zIndex: '-1', height: '100%'}} />
+    </header>
+    </>
+  )
+}
 
 export default props => (
-    <StaticQuery
-        query={graphql`
+  <StaticQuery
+    query={graphql`
             query HeaderQuery {
               headerImage: file(relativePath: {eq: "images/header_bg.jpg"}) {
                 childImageSharp {
@@ -92,6 +90,6 @@ export default props => (
               }
             }
     `}
-        render={data => <Header data={data} {...props} />}
-    />
+    render={data => <Header data={data} {...props} />}
+  />
 )

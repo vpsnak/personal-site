@@ -1,35 +1,35 @@
 import React from 'react'
-import {StaticQuery, graphql} from 'gatsby'
-import Fab from '@material-ui/core/Fab';
-import {CloudDownload} from '@material-ui/icons';
+import {graphql, StaticQuery} from 'gatsby'
+import Fab from '@material-ui/core/Fab'
+import {CloudDownload} from '@material-ui/icons'
 import {Section} from '../Layout'
 
 const Hi = (props) => {
-    const {
-        data
-    } = props;
+  const {
+    data
+  } = props
 
-    const info = data.profile;
+  const info = data.profile
 
-    // @TODO check why menu not scroll to this section
-    return (
-        <Section
-            id={"hello"}
-            title={'Hi_'}
-            description={info ? info.content : ''}
-        >
-            {/*<Button waves='orange' className={"section_btn site-btn"}>button<Icon left>cloud</Icon></Button>*/}
-            <Fab variant="extended" aria-label="Download" className={"section_btn site-btn"}>
-                <CloudDownload />
-                Download CV
-            </Fab>
-        </Section>
-    )
-};
+  // @TODO check why menu not scroll to this section
+  return (
+    <Section
+      id={'hello'}
+      title={'Hi_'}
+      description={info ? info.content : ''}
+    >
+      {/*<Button waves='orange' className={"section_btn site-btn"}>button<Icon left>cloud</Icon></Button>*/}
+      <Fab variant="extended" aria-label="Download" className={'section_btn site-btn'}>
+        <CloudDownload />
+        Download CV
+      </Fab>
+    </Section>
+  )
+}
 
 export default props => (
-    <StaticQuery
-        query={graphql`
+  <StaticQuery
+    query={graphql`
             query HiQuery {
               profile: wordpressPage(slug: {eq: "evangelos-pallis"}) {
                 id
@@ -59,6 +59,6 @@ export default props => (
               }
             }
     `}
-        render={data => <Hi data={data} {...props} />}
-    />
+    render={data => <Hi data={data} {...props} />}
+  />
 )
