@@ -31,8 +31,6 @@ class Skill extends Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.state.animate) {
-      // this.animateText(this.sectionTitle.innerHTML, '', 100)
-      // this.progressBar.value(this.props.percent);
       window.removeEventListener('scroll', this.handleScroll)
       this.setState({
         animate: false,
@@ -42,15 +40,16 @@ class Skill extends Component {
   }
 
   render() {
-    const {title, percent} = this.props
+    const {title} = this.props
+    const {percent} = this.state
 
     return (
       <div className="progress-list__skill" ref={node => this.progressBar = node}>
         <p>
           <span className="progress-list__skill-title">{title}</span>
-          <span className="progress-list__skill-value">{this.state.percent}%</span>
+          <span className="progress-list__skill-value">{percent}%</span>
         </p>
-        <Progress value={this.state.percent} max={100} />
+        <Progress value={percent} max={100} />
       </div>
     )
   }
