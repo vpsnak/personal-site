@@ -61,7 +61,7 @@ module.exports = {
         path: `${__dirname}/src/assets/`
       }
     },
-    'gatsby-plugin-react-helmet'
-    // 'gatsby-plugin-netlify',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-netlify',
   ]
 }
