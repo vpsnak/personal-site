@@ -1,10 +1,8 @@
 import React from 'react'
 import {graphql, StaticQuery} from 'gatsby'
-
+import {Col, Row} from 'reactstrap'
 import Section from '../Layout/Section'
 import {RoadMapItem, Skill} from '../Element'
-
-import {Col, Row} from 'reactstrap'
 
 const ResumeSection = ({data}) => (
   <Section
@@ -49,16 +47,16 @@ const ResumeSection = ({data}) => (
         <h3 className={'progress-list__title'}>general skills</h3>
       </Col>
       <Col md={5} className="mr-auto">
-        <Skill title={'html5'} percent={80} />
-        <Skill title={'css3'} percent={90} />
-        <Skill title={'javascript'} percent={75} />
-        <Skill title={'jquery'} percent={80} />
+        <Skill title={'Wordpress'} percent={90} />
+        <Skill title={'Magento 1'} percent={50} />
+        <Skill title={'Magento 2'} percent={75} />
+        <Skill title={'GatsbyJS'} percent={60} />
       </Col>
       <Col md={5} className="mr-auto">
-        <Skill title={'bootstrap 4'} percent={60} />
-        <Skill title={'docker'} percent={80} />
-        <Skill title={'git'} percent={90} />
-        <Skill title={'php'} percent={75} />
+        <Skill title={'react'} percent={60} />
+        <Skill title={'scss / less'} percent={85} />
+        <Skill title={'php'} percent={95} />
+        <Skill title={'git'} percent={50} />
       </Col>
     </Row>
   </Section>
@@ -112,7 +110,7 @@ export default (props) => (
                   github
                   linkedin
                   facebook
-                  cv
+                  #cv
                 }
               }
             }

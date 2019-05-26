@@ -48,7 +48,7 @@ class Skill extends Component {
       <div className="progress-list__skill" ref={node => this.progressBar = node}>
         <p>
           <span className="progress-list__skill-title">{title}</span>
-          <span className="progress-list__skill-value">{percent}%</span>
+          <span className="progress-list__skill-value">{this.state.percent}%</span>
         </p>
         <Progress value={this.state.percent} max={100} />
       </div>
