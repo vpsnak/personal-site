@@ -2,7 +2,7 @@ import React from 'react'
 import {graphql, StaticQuery} from 'gatsby'
 import {MdCloudDownload} from 'react-icons/md'
 import {Section} from '../Layout'
-import Bio from '../../assets/Ευάγγελος Πάλλης Bio.pdf'
+import Bio from '../../assets/Bio.pdf'
 
 const Hi = (props) => {
   const {
