@@ -200,7 +200,6 @@ export default props => (
                   github
                   linkedin
                   facebook
-                  #cv
                 }
                 #featured_media {
                 #  localFile {

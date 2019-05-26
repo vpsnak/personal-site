@@ -100,17 +100,7 @@ export default props => (
                   github
                   linkedin
                   facebook
-                  #cv
                 }
-                #featured_media {
-                #  localFile {
-                #    childImageSharp {
-                #      fluid(maxWidth: 1920) {
-                #        ...GatsbyImageSharpFluid_withWebp
-                #      }
-                #    }
-                #  }
-                #}
               }
             }
     `}

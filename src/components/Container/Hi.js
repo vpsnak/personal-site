@@ -1,8 +1,8 @@
 import React from 'react'
 import {graphql, StaticQuery} from 'gatsby'
-import Fab from '@material-ui/core/Fab'
-import {CloudDownload} from '@material-ui/icons'
+import {MdCloudDownload} from 'react-icons/md'
 import {Section} from '../Layout'
+import Bio from '../../assets/Ευάγγελος Πάλλης Bio.pdf'
 
 const Hi = (props) => {
   const {
@@ -11,18 +11,18 @@ const Hi = (props) => {
 
   const info = data.profile
 
-  // @TODO check why menu not scroll to this section
   return (
     <Section
       id={'hello'}
       title={'Hi_'}
       description={info ? info.content : ''}
     >
-      {/*<Button waves='orange' className={"section_btn site-btn"}>button<Icon left>cloud</Icon></Button>*/}
-      <Fab variant="extended" aria-label="Download" className={'section_btn site-btn'}>
-        <CloudDownload />
-        Download CV
-      </Fab>
+      <a aria-label="Download" href={Bio} target={`_blank`} rel={`noopener noreferrer`}>
+        <button className={'section_btn site-btn'} css={{cursor: `pointer`, border: `none`}}>
+          <MdCloudDownload size={20} className={'mr-1'} />
+          Download CV
+        </button>
+      </a>
     </Section>
   )
 }
@@ -45,7 +45,9 @@ export default props => (
                   github
                   linkedin
                   facebook
-                  #cv
+                  cv {
+                    link
+                  }
                 }
                 #featured_media {
                 #  localFile {
