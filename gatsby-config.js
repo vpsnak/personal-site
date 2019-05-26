@@ -5,8 +5,9 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Evangelos Pallis`,
-    description: `Personal site`,
-    subtitle: `Custom Desc`,
+    description: `Programming made easy`,
+    subtitle: `Programming made easy`,
+    siteUrl: process.env.SITE_URL,
     author: `@vpsnak`
   },
   plugins: [
@@ -32,9 +33,6 @@ module.exports = {
           '**/educations',
           '**/employments',
           '**/projects',
-          // "**/spirit/**",
-          // "**/spirit/v2/options",
-          // "**/settings",
           '**/menus'
         ]
       }
@@ -63,5 +61,27 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-netlify',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Programming made easy | Evangelos Pallis`,
+        short_name: `Evangelos Pallis`,
+        start_url: `/`,
+        background_color: `#575757`,
+        theme_color: `#ffffff`,
+        display: `standalone`,
+        icon: `src/assets/favicon.png`
+      }
+    },
+    'gatsby-plugin-offline',
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: `${process.env.SITE_URL}`,
+        sitemap: `${process.env.SITE_URL}/sitemap.xml`,
+        policy: [{userAgent: '*', allow: '/'}]
+      }
+    }
   ]
 }
