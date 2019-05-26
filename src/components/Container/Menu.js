@@ -55,7 +55,7 @@ class Menu extends Component {
                     >
                       <Link
                         activeClass="active"
-                        to={item.url}
+                        to={item.object_slug}
                         spy={true}
                         smooth={true}
                         offset={-50}
