@@ -34,6 +34,13 @@ class Contact extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    if(!this.state.name)
+      return;
+    if(!this.state.email)
+      return;
+    if(!this.state.message)
+      return;
+
     const form = e.target
     fetch('/', {
       method: 'POST',
@@ -67,18 +74,21 @@ class Contact extends Component {
             <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
           </p>
           <FormGroup>
+            <label htmlFor="name" hidden>Name</label>
             <FormInput type="text" id="name" name="name" placeholder="Your name.."
                        value={this.state.name}
                        onChange={this.handleChange}
             />
           </FormGroup>
           <FormGroup>
+            <label htmlFor="email" hidden>Email</label>
             <FormInput type="email" id="email" className="form-field js-field-e-mail" name="email" placeholder="Your e-mail.."
                        value={this.state.email}
                        onChange={this.handleChange}
             />
           </FormGroup>
           <FormGroup>
+            <label htmlFor="message" hidden>Message</label>
             <FormTextArea id="message" className="form-field js-field-message" name="message" placeholder="Type the message here"
                           onChange={this.handleChange}
                           defaultValue={this.state.message}

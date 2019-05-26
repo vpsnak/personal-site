@@ -30,9 +30,9 @@ export default ({profile, image}) => (
           </dl>
         </div>
         <p className="personal-profile__social">
-          <a href={profile.acf.github} target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-          <a href={profile.acf.linkedin} target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
-          <a href={profile.acf.facebook} target="_blank" rel="noopener noreferrer"><FaFacebookSquare /></a>
+          <a href={profile.acf.github} target="_blank" rel="noopener noreferrer" aria-label={`github`}><FaGithub /></a>
+          <a href={profile.acf.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`linkedin`}><FaLinkedinIn /></a>
+          <a href={profile.acf.facebook} target="_blank" rel="noopener noreferrer" aria-label={`facebook`}><FaFacebookSquare /></a>
         </p>
       </Col>
     </Row>
