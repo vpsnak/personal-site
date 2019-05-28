@@ -33,6 +33,9 @@ module.exports = {
           '**/educations',
           '**/employments',
           '**/projects',
+          '**/slides',
+          '**/spirit-presentation',
+          '**/presentation',
           '**/menus'
         ]
       }
@@ -74,7 +77,21 @@ module.exports = {
       }
     },
     'gatsby-plugin-offline',
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-80048808-4'
+      }
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        // Exclude specific pages or groups of pages using glob parameters
+        // See: https://github.com/isaacs/minimatch
+        // The example below will exclude the single `path/to/page` and all routes beginning with `category`
+        exclude: ['/test/*', `/hello-world/**`, '/presentation/**']
+      }
+    },
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {

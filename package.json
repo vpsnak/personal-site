@@ -15,6 +15,7 @@
     "gatsby": "^2.7.1",
     "gatsby-image": "^2.1.0",
     "gatsby-plugin-emotion": "^4.0.6",
+    "gatsby-plugin-google-analytics": "^2.0.20",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-netlify": "^2.0.17",
     "gatsby-plugin-offline": "^2.1.1",
@@ -35,7 +36,9 @@
     "react-responsive": "^6.1.2",
     "react-scroll": "^1.7.11",
     "react-share": "^3.0.0",
-    "reactstrap": "^8.0.0"
+    "react-typist": "^2.0.5",
+    "reactstrap": "^8.0.0",
+    "spectacle": "^5.5.0"
   },
   "devDependencies": {
     "eslint": "^4.1.1",
