@@ -7,7 +7,7 @@ module.exports = {
     title: `Evangelos Pallis`,
     description: `Programming made easy`,
     subtitle: `Programming made easy`,
-    siteUrl: process.env.SITE_URL,
+    siteUrl: `https://epallis.gr`,
     author: `@vpsnak`
   },
   plugins: [
@@ -96,7 +96,7 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: `${process.env.SITE_URL}`,
-        sitemap: `${process.env.SITE_URL}/sitemap.xml`,
+        sitemap: `https://epallis.gr/sitemap.xml`,
         policy: [{userAgent: '*', allow: '/'}]
       }
     }
